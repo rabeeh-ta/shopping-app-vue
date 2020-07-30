@@ -22,7 +22,7 @@
             </v-btn>
             <v-spacer></v-spacer>
             <v-chip>qty: {{item.qty}}</v-chip>
-            <v-btn small class="ml-2" color="primary">Buy</v-btn>
+            <v-btn small class="ml-2" @click="addCart(item.name, item.qty)" color="primary">Buy</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -48,7 +48,17 @@ export default {
       { name: "padha ari", price: 20, awailability: true, tag: "rice", qty: 0 },
       { name: "biscuts", price: 48, awailability: true, tag: "bakery", qty: 0 },
     ],
+    cart: [],
   }),
+  methods: {
+    addCart(name, qty) {
+      this.cart.push({ name: name, quantity: qty });
+      alert(`your item ${name} no. ${qty} added`);
+      // this.cart.forEach((item) => {
+      //   console.log(item.name, item.quantity);
+      // });
+    },
+  },
 };
 </script>
 

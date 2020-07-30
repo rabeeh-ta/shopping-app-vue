@@ -1,12 +1,16 @@
 <template>
   <v-toolbar max-height="60" dense>
-    <img class="logo-nav" src="../assets/logo.png" alt />
-    <v-toolbar-title class="black--text">Home</v-toolbar-title>
-    <v-spacer></v-spacer>
+    <router-link :to="{name:'Home'}">
+      <img class="logo-nav" src="../assets/logo.png" alt />
+    </router-link>
 
-    <v-btn icon>
-      <v-icon color="black">mdi-cart</v-icon>
-    </v-btn>
+    <v-toolbar-title class="black--text">{{$route.name}}</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <router-link :to="{name:'Cart'}">
+      <v-btn icon>
+        <v-icon color="black">mdi-cart</v-icon>
+      </v-btn>
+    </router-link>
   </v-toolbar>
 </template>
 
