@@ -1,36 +1,29 @@
 <template>
   <v-container>
     <p>cart section</p>
+    <ul v-for="(item , index) in items" :key="index">
+      <li>{{item.name}} => {{item.quantity}}</li>
+    </ul>
   </v-container>
 </template>
 
 <script>
+import { bus } from "../main.js";
 export default {
-  name: "Home",
+  name: "Cart",
 
   data: () => ({
-    items: [
-      { name: "banana", price: 34, awailability: true, tag: "fruite", qty: 0 },
-      {
-        name: "tomato",
-        price: 10,
-        awailability: true,
-        tag: "vegetable",
-        qty: 0,
-      },
-      { name: "milk", price: 34, awailability: true, tag: "dairy", qty: 0 },
-      { name: "padha ari", price: 20, awailability: true, tag: "rice", qty: 0 },
-      { name: "biscuts", price: 48, awailability: true, tag: "bakery", qty: 0 },
-    ],
-    cart: [],
+    items: [],
   }),
   methods: {
     addCart(name, qty) {
       this.cart.push({ name: name, quantity: qty });
-      // this.cart.forEach((item) => {
-      //   console.log(item.name, item.quantity);
-      // });
     },
+  },
+  created() {
+    bus.$on("addCart", (cart) => {
+      this.items = cart;
+    });
   },
 };
 </script>

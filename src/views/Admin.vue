@@ -6,7 +6,7 @@
     </v-btn>
     <v-layout row wrap>
       <v-flex xs12 sm6 md4 lg3 v-for="(item , index) in items" :key="index">
-        <v-card class="ma-5" max-width="350px">
+        <v-card class="ma-2" max-width="350px">
           <v-container>
             <v-list-item-content>
               <v-list-item-title class="headline items-title">{{item.name}}</v-list-item-title>
