@@ -7,7 +7,7 @@
             <v-list-item-content>
               <v-list-item-title class="headline items-title">
                 {{item.name}}
-                <v-chip small># {{item.tag}}</v-chip>
+                <v-chip small outlined># {{item.tag}}</v-chip>
               </v-list-item-title>
               <h3>₹ {{item.price}}</h3>
             </v-list-item-content>
@@ -22,7 +22,12 @@
             </v-btn>
             <v-spacer></v-spacer>
             <v-chip>qty: {{item.qty}}</v-chip>
-            <v-btn small class="ml-2" @click="addCart(item.name, item.qty)" color="primary">Add</v-btn>
+            <v-btn
+              small
+              class="ml-2"
+              @click="addCart(item.name, item.qty,item.price)"
+              color="primary"
+            >Add</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -52,8 +57,8 @@ export default {
     cart: [],
   }),
   methods: {
-    addCart(name, qty) {
-      this.cart.push({ name: name, quantity: qty });
+    addCart(name, qty, price) {
+      this.cart.push({ name: name, quantity: qty, price: price });
       //alert(`your item ${name} no. ${qty} added`);
     },
   },
