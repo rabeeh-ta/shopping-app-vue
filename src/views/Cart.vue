@@ -48,6 +48,8 @@ export default {
     items: [],
     approxPrice: 0,
     totalItems: 0,
+    redirectURL: "http://wa.me/+919048814964/?text=",
+    redirectText: "",
   }),
   methods: {
     totalPriceCal() {
@@ -63,7 +65,13 @@ export default {
       });
     },
     orderWhatspp() {
-      alert("redirect");
+      this.items.forEach((el) => {
+        this.redirectText =
+          this.redirectText + `${el.name} = ${el.quantity}%20`;
+      });
+      window.open(
+        `http://wa.me/+919048814964/?text=*Items*%0A${this.redirectText}`
+      );
     },
   },
   created() {
