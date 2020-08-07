@@ -28,11 +28,7 @@
         <v-card class="ma-2" max-width="350px">
           <v-container>
             <v-list-item-content>
-              <v-list-item-title class="headline items-title">
-                {{
-                item.name
-                }}
-              </v-list-item-title>
+              <v-list-item-title class="headline items-title">{{ item.name }}</v-list-item-title>
               <h3>₹ {{ item.price }}</h3>
             </v-list-item-content>
             <v-chip># {{ item.tag }}</v-chip>
@@ -43,10 +39,10 @@
             <v-spacer></v-spacer>
 
             <v-btn small class="ml-2" color="grey">
-              <v-icon>mdi-pencil</v-icon>
+              <v-icon color="white">mdi-pencil</v-icon>
             </v-btn>
             <v-btn small class="ml-2" color="red">
-              <v-icon>mdi-delete</v-icon>
+              <v-icon color="gry">mdi-delete</v-icon>
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -79,7 +75,7 @@ export default {
         })
         .then(() => {
           this.dialog = false;
-          this.$router.go();
+          this.$router.go({ name: "Admin" });
         })
         .catch((err) => console.log(err));
     },
