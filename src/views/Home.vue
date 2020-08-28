@@ -60,6 +60,7 @@ export default {
         snapshot.forEach((doc) => {
           let item = doc.data();
           item.id = doc.id;
+          item.qty = 0;
           this.items.push(item);
         });
       });
