@@ -28,4 +28,7 @@ export default {};
   width: 30px;
   margin: 4px;
 }
+a {
+  text-decoration: none;
+}
 </style>

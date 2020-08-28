@@ -48,6 +48,9 @@ export default {
   methods: {
     addCart(name, qty, price) {
       this.cart.push({ name: name, quantity: qty, price: price });
+      this.items.forEach((item) => {
+        item.qty = 0;
+      });
     },
   },
   beforeDestroy() {
